@@ -1,0 +1,1 @@
+export REDISCLOUD_URL="redis://rediscloud:Ipr4Gp3oS6oVrsIk@pub-redis-16259.us-east-1-4.6.ec2.redislabs.com:16259"
