@@ -3,11 +3,13 @@ Rails.application.routes.draw do
     jsonapi_resources :teams
     jsonapi_resources :children
     jsonapi_resources :steps
+    jsonapi_resources :organizations
   end
 
   namespace :admin do
     resources :teams
     resources :children
+    resources :organizations
     resources :steps do
       collection do
         # required for Sortable GUI server side actions

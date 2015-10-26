@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.1'
 gem 'responders', '~> 2.1.0'
 gem 'rack-cors'
+gem 'unicorn'
 # Use postgresql as the database for Active Record
 #gem 'pg'
 gem 'pg'
