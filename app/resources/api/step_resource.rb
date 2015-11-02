@@ -4,6 +4,7 @@ module Api
     attributes :created_at, :updated_at
 
     has_one :parent, class_name: 'Step'
+    has_many :ancestors, class_name: 'Step' 
     has_many :children, class_name: 'Step'
     has_many :siblings, class_name: 'Step'
     has_many :completed_by, class_name: 'Child'
