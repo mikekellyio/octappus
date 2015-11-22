@@ -18,6 +18,7 @@ gem 'awesome_nested_set'
 gem "the_sortable_tree", "~> 2.5.0"
 
 gem "skylight"
+gem 'administrate'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

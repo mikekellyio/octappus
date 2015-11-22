@@ -64,4 +64,8 @@ class Child < ActiveRecord::Base
     team.name if team.present?
   end
 
+  def to_s
+    name
+  end
+
 end

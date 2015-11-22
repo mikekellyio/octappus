@@ -1,24 +1,19 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
+      resources dashboard_resource
+    end
+
+    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
+  end
+
   namespace :api do
     jsonapi_resources :teams
     jsonapi_resources :children
     jsonapi_resources :steps
+    jsonapi_resources :detail_steps
     jsonapi_resources :organizations
   end
-
-  namespace :admin do
-    resources :teams
-    resources :children
-    resources :organizations
-    resources :steps do
-      collection do
-        # required for Sortable GUI server side actions
-        post :rebuild
-      end
-    end
-  end
-
-  get 'admin/steps/:id' => 'admin/steps#show', as: :step
 
   root 'application#index'
   get '*everything', to: 'application#index'
