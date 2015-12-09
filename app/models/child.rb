@@ -36,12 +36,7 @@ class Child < ActiveRecord::Base
   end
 
   def next_step
-    step = if pending_steps.first && pending_steps.first.leaf?
-      pending_steps.first.parent || pending_steps.first
-    else
-      pending_steps.first
-    end
-    step
+    pending_steps.first
   end
 
   def next_step_id= id

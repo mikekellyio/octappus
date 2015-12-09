@@ -1,3 +1,20 @@
+module JSONAPI
+  class LinkBuilder
+    private
+
+    def build_engine_name
+      scopes = module_scopes_from_class(primary_resource_klass)
+
+      unless scopes.empty?
+        begin
+          "#{ scopes.first.to_s.camelize }::Engine".safe_constantize
+        rescue LoadError => e
+        end
+      end
+    end
+  end
+end
+
 Knock.setup do |config|
 
   ## User handle attribute
@@ -29,7 +46,7 @@ Knock.setup do |config|
   ## the user_id is stored in the 'sub' claim.
   ##
   ## Default:
-  # config.current_user_from_token = -> (claims) { User.find claims['sub'] }
+  config.current_user_from_token = -> (claims) { User.where(auth_id: claims['sub']).first }
 
 
   ## Expiration claim
